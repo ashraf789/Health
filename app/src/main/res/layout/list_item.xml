@@ -1,45 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="200dp"
     android:layout_height="150dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="5dp"
     android:foreground="?android:attr/selectableItemBackground"
-    android:clickable="true">
-
+    android:clickable="true"
+    android:focusable="true">
+<android.support.v7.widget.CardView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:elevation="@dimen/cardview_default_elevation"
+    app:cardCornerRadius="@dimen/cardview_default_radius"
+    >
     <ImageView
         android:id="@+id/productIV"
         android:scaleType="fitXY"
         android:alpha="0.7"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/food2"/>
+        android:src="@drawable/honey"/>
     <LinearLayout
         android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
         android:orientation="vertical">
 
         <TextView
-            android:textColor="#3b3b3b"
+            android:textColor="@color/testcolorblue"
             android:id="@+id/titleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/whitetransparent"
             android:text="Fruit"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:paddingLeft="@dimen/cardview_default_radius"
+            android:paddingRight="@dimen/cardview_default_radius"/>
         <TextView
-            android:textColor="#3b3b3b"
+            android:textColor="@color/testcolorblue"
             android:id="@+id/descTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Apple, Banana"/>
+            android:background="@color/whitetransparent"
+            android:text="Apple, Banana"
+            android:paddingLeft="@dimen/cardview_default_radius"
+            android:paddingRight="@dimen/cardview_default_radius"/>
         <TextView
-            android:textColor="#3b3b3b"
+            android:textColor="@color/testcolorblue"
             android:id="@+id/locationTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Princer bazar"/>
+            android:background="@color/whitetransparent"
+            android:text="Princer bazar"
+            android:paddingLeft="@dimen/cardview_default_radius"
+            android:paddingRight="@dimen/cardview_default_radius"/>
 
     </LinearLayout>
+</android.support.v7.widget.CardView>
 </RelativeLayout>

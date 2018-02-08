@@ -14,6 +14,7 @@
     <color name="testcolorblue">#152b38</color>
     <color name="pink">#fe104d</color>
     <color name="white">#FFFFFF</color>
+    <color name="whitetransparent">#80FFFFFF</color>
 
     <color name="black_overlay">#66000000</color>
 </resources>

@@ -85,16 +85,22 @@ public class Home extends Fragment {
             medicine.add(product);
         }
 
-        for (int  i = 0; i< 5; i++){
+        //start adding foods
             product = new RecommendedProduct(
-                    "Fruit No "+(1+i),
-                    "Apple, Banana",
-                    "Prince Bazar",
-                    R.drawable.food2
+                    "Organic Honey",
+                    "no added preservatives",
+                    "Narayan gonj",
+                    R.drawable.honey
             );
-
             food.add(product);
-        }
+            product = new RecommendedProduct(
+                    "Organic Honey",
+                    "no added preservatives or flavors",
+                    "Narayan gonj",
+                    R.drawable.honey
+            );
+            food.add(product);
+        //end
 
         for (int  i = 0; i< 5; i++){
             product = new RecommendedProduct(
