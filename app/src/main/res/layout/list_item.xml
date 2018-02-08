@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    android:layout_height="150dp"
+    android:layout_margin="5dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true">
+
+    <ImageView
+        android:id="@+id/productIV"
+        android:scaleType="fitXY"
+        android:alpha="0.7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/food2"/>
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:textColor="#3b3b3b"
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fruit"
+            android:textStyle="bold"/>
+        <TextView
+            android:textColor="#3b3b3b"
+            android:id="@+id/descTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apple, Banana"/>
+        <TextView
+            android:textColor="#3b3b3b"
+            android:id="@+id/locationTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Princer bazar"/>
+
+    </LinearLayout>
+</RelativeLayout>

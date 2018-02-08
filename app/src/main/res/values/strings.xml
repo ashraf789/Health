@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Health</string>
+    <string name="victory_over_sickness">Victory Over Sickness</string>
+    <string name="health_sickness_quote">Health is not valued till sickness comes.\n <b>"Thomas Fuller" </b></string>
+    <string name="victory_over_weakness">Victory over weakness</string>
+    <string name="health_net">Health.NET</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
