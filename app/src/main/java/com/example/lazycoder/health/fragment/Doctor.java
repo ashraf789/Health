@@ -9,8 +9,11 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.support.v7.widget.SearchView;
 
 import com.example.lazycoder.health.ModelClass.Item;
 import com.example.lazycoder.health.R;
@@ -34,6 +37,7 @@ public class Doctor extends Fragment {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_doctor, container, false);
         initializeAll();
         return binding.getRoot();
+
     }
 
     private void initializeAll() {
@@ -68,4 +72,6 @@ public class Doctor extends Fragment {
         super.onAttach(context);
         this.context = context;
     }
+
+
 }

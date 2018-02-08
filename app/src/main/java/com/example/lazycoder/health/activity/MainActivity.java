@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.example.lazycoder.health.R;
 import com.example.lazycoder.health.fragment.Doctor;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RelativeLayout navHomeRl,navDoctorRl,navAccessoriesRl,navMedicineRl,navFoodRl,navGymRl;
     private Fragment fragment;
     private FragmentTransaction transaction;
+    private SearchView simpleSearchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +66,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         navMedicineRl.setOnClickListener(this);
         navFoodRl.setOnClickListener(this);
         navGymRl.setOnClickListener(this);
+
+        simpleSearchView = (SearchView) findViewById(R.id.searchView);
+        simpleSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Toast.makeText(getApplicationContext(),query+"some thing",Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                return false;
+            }
+        });
     }
 
     @Override
