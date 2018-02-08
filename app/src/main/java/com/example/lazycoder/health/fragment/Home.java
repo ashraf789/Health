@@ -33,6 +33,7 @@ public class Home extends Fragment {
     private List<RecommendedProduct> food;
     private List<RecommendedProduct> gym;
     private Context context;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -86,20 +87,16 @@ public class Home extends Fragment {
         }
 
         //start adding foods
+        for (int  i = 0; i< 5; i++){
             product = new RecommendedProduct(
-                    "Organic Honey",
+                    "Organic Honey "+(i+1),
                     "no added preservatives",
                     "Narayan gonj",
                     R.drawable.honey
             );
             food.add(product);
-            product = new RecommendedProduct(
-                    "Organic Honey",
-                    "no added preservatives or flavors",
-                    "Narayan gonj",
-                    R.drawable.honey
-            );
-            food.add(product);
+        }
+
         //end
 
         for (int  i = 0; i< 5; i++){
