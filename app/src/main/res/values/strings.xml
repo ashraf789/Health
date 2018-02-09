@@ -10,4 +10,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="honey_desc">Honey is a sweet, viscous food substance produced by bees and some related insects. Bees produce honey from the sugary secretions of plants or other insects through regurgitation, enzymatic activity, and water evaporation.</string>
+    <string name="api_key">AIzaSyCCzYxpSl8eyMEguDQD0Nu6xQnc5NEcCkE</string>
 </resources>

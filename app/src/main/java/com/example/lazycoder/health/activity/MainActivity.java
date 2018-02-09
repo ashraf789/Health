@@ -1,5 +1,6 @@
 package com.example.lazycoder.health.activity;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -22,6 +23,10 @@ import com.example.lazycoder.health.fragment.Home;
 import com.example.lazycoder.health.fragment.Medicine;
 import com.example.lazycoder.health.fragment.ProductDetailPage;
 import com.example.lazycoder.health.interfaces.ClickListener;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, ClickListener {
 
@@ -29,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Fragment mFragment;
     private FragmentTransaction transaction;
     private SearchView simpleSearchView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +79,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         simpleSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                Toast.makeText(getApplicationContext(),query+"some thing",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),query+" ",Toast.LENGTH_LONG).show();
+
                 return false;
             }
 
@@ -84,6 +91,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
+
+
 
     @Override
     public void onClick(View view) {
