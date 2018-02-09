@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Home extends Fragment {
+public class Home extends Fragment{
 
 
     private FragmentHomeBinding binding;
@@ -150,4 +150,5 @@ public class Home extends Fragment {
         super.onAttach(context);
         this.context = context;
     }
+
 }

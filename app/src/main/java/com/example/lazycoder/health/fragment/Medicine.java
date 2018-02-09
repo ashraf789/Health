@@ -7,51 +7,65 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.lazycoder.health.ModelClass.Item;
 import com.example.lazycoder.health.R;
+import com.example.lazycoder.health.adapter.ItemAdapter;
 import com.example.lazycoder.health.databinding.FragmentMedicineBinding;
-import com.example.lazycoder.health.databinding.FragmentProductDetailPageBinding;
-import com.example.lazycoder.health.interfaces.ClickListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProductDetailPage extends Fragment {
+public class Medicine extends Fragment {
 
-    private FragmentProductDetailPageBinding binding;
+
+    private FragmentMedicineBinding binding;
+    private List<Item> medicines;
     private Context context;
-    private ClickListener clickListener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_product_detail_page, container, false);
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_medicine, container, false);
         initializeAll();
         return binding.getRoot();
     }
 
     private void initializeAll() {
-        clickListener = (ClickListener) context;
+        medicines = new ArrayList<>();
+        Item medicine;
+        //sample product
+        for (int  i = 0; i< 6; i++){
+            medicine = new Item(
+                    "Medicine Shop No "+(1+i),
+                    "Surgery",
+                    "Apollo Hospital,Dhanmondi 32",
+                    R.drawable.medicineshop
+            );
+
+            medicines.add(medicine);
+        }
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.mapViewIv.setOnClickListener(mapViewListener);
+
+        binding.medicineRecyclerView.setHasFixedSize(true);
+        binding.medicineRecyclerView.setLayoutManager(new GridLayoutManager(context,2));
+
+        ItemAdapter adapter = new ItemAdapter(medicines,context);
+        binding.medicineRecyclerView.setAdapter(adapter);
     }
-
-    View.OnClickListener mapViewListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-
-            Fragment fragment = new AddressMapView();
-            clickListener.onProductClick(fragment);
-        }
-    };
 
     @Override
     public void onAttach(Context context) {

@@ -3,10 +3,10 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.lazycoder.health.fragment.Doctor">
+        tools:context="com.example.lazycoder.health.fragment.Accessorise">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/doctorRV"
+            android:id="@+id/accessoriesRecyclerView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scrollbars="vertical">

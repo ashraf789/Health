@@ -1,14 +1,10 @@
 package com.example.lazycoder.health.activity;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -18,13 +14,19 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.lazycoder.health.R;
+import com.example.lazycoder.health.fragment.Accessorise;
 import com.example.lazycoder.health.fragment.Doctor;
+import com.example.lazycoder.health.fragment.Food;
+import com.example.lazycoder.health.fragment.Gym;
 import com.example.lazycoder.health.fragment.Home;
+import com.example.lazycoder.health.fragment.Medicine;
+import com.example.lazycoder.health.fragment.ProductDetailPage;
+import com.example.lazycoder.health.interfaces.ClickListener;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, ClickListener {
 
     private RelativeLayout navHomeRl,navDoctorRl,navAccessoriesRl,navMedicineRl,navFoodRl,navGymRl;
-    private Fragment fragment;
+    private Fragment mFragment;
     private FragmentTransaction transaction;
     private SearchView simpleSearchView;
 
@@ -43,14 +45,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toggle.syncState();
         initializeAll();
 
-        transaction.add(R.id.containerMain,fragment);
+        transaction.add(R.id.containerMain, mFragment);
         transaction.commit();
     }
     /*
     * initialize  all object or variable
     * */
     private void initializeAll() {
-        fragment = new Home();
+        mFragment = new Home();
         transaction = getSupportFragmentManager().beginTransaction();
 
         navHomeRl = (RelativeLayout) findViewById(R.id.navHomeRl);
@@ -87,24 +89,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.navHomeRl:
-                fragment = new Home();
+                mFragment = new Home();
                 break;
             case R.id.navDoctorRl:
-                fragment = new Doctor();
+                mFragment = new Doctor();
                 break;
             case R.id.navAccessoriesRl:
+                mFragment = new Accessorise();
                 break;
             case R.id.navMedicineRl:
+                mFragment = new Medicine();
                 break;
             case R.id.navFoodRl:
+                mFragment = new Food();
                 break;
             case R.id.navGymRl:
+                mFragment = new Gym();
                 break;
 
         }
 
         transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.containerMain,fragment);
+        transaction.replace(R.id.containerMain, mFragment);
         transaction.commit();
         closeDrawer();
 
@@ -120,39 +126,62 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    /*
-    * after press back button this method will be called
-    * */
-    public void onBackPressed() {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                MainActivity.this);
+    //if we use this then addToBackStack won't work need to solution this on later
 
-        // set title
-        alertDialogBuilder.setTitle("Exit");
+//
+//    /*
+//    * after press back button this method will be called
+//    * */
+//    public void onBackPressed() {
+//
+//
+//        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+//                MainActivity.this);
+//
+//        // set title
+//        alertDialogBuilder.setTitle("Exit");
+//
+//        // set dialog message
+//        alertDialogBuilder
+//                .setMessage("Do you want to exit?")
+//                .setCancelable(false)
+//                .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog,int id) {
+//                        // if this button is clicked, close
+//                        // current activity
+//                        MainActivity.this.finish();
+//                    }
+//                })
+//                .setNegativeButton("No",new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog,int id) {
+//                        // if this button is clicked, just close
+//                        // the dialog box and do nothing
+//                        dialog.cancel();
+//                    }
+//                });
+//
+//        // create alert dialog
+//        AlertDialog alertDialog = alertDialogBuilder.create();
+//
+//        // show it
+//        alertDialog.show();
+//    }
 
-        // set dialog message
-        alertDialogBuilder
-                .setMessage("Do you want to exit?")
-                .setCancelable(false)
-                .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,int id) {
-                        // if this button is clicked, close
-                        // current activity
-                        MainActivity.this.finish();
-                    }
-                })
-                .setNegativeButton("No",new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,int id) {
-                        // if this button is clicked, just close
-                        // the dialog box and do nothing
-                        dialog.cancel();
-                    }
-                });
+    public void changeFragment(Fragment fragment){
+        transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.containerMain,fragment).addToBackStack(null);
 
-        // create alert dialog
-        AlertDialog alertDialog = alertDialogBuilder.create();
-
-        // show it
-        alertDialog.show();
+        transaction.commit();
     }
+
+    @Override
+    public void onProductClick() {
+        changeFragment(new ProductDetailPage());
+    }
+
+    @Override
+    public void onProductClick(Fragment fragment) {
+        changeFragment(fragment);
+    }
+
 }
