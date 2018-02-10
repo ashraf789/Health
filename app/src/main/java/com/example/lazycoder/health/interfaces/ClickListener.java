@@ -9,5 +9,6 @@ import android.support.v4.app.Fragment;
 
 public interface ClickListener {
     void onProductClick();
+    void onProductClick(String productCode);
     void onProductClick(Fragment fragment);
 }

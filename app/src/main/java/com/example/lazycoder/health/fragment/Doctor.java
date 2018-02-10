@@ -46,7 +46,7 @@ public class Doctor extends Fragment {
     private final View.OnClickListener mButtonClickListener = new View.OnClickListener() {
         @Override
         public void onClick(final View v) {
-            maps_api();
+            //maps_api();
         }
     };
 

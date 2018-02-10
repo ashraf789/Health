@@ -25,6 +25,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     private List<Item> products;
     private Context context;
     private ClickListener productClick;
+    private Item product;
 
 
     public ItemAdapter(List<Item> products, Context context) {
@@ -42,18 +43,18 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ItemAdapter.ViewHolder holder, int position) {
-        Item product = products.get(position);
+        product = products.get(position);
         holder.titleTv.setText(product.getTitle());
         holder.descTv.setText(product.getDescription());
         holder.locationTv.setText(product.getLocation());
 
         //Picasso is faster also it handle image outOfBound Memory Exception
-        Picasso.with(context).load(product.getImageUrl()).into(holder.productIV);
+        Picasso.with(context).load(product.getImageUrl()).resize(400,400).into(holder.productIV);
 
         holder.productRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                productClick.onProductClick();
+                productClick.onProductClick(product.getProductCode());
             }
         });
     }
