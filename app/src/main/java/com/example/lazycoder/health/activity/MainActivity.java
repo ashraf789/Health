@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
@@ -183,21 +184,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        alertDialog.show();
 //    }
 
-    public void changeFragment(Fragment fragment){
-        transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.containerMain,fragment).addToBackStack(null);
 
-        transaction.commit();
-    }
+
 
     @Override
     public void onProductClick() {
-        changeFragment(new ProductDetailPage());
+        changeFragment(fragment);
+    }
+
+    ProductDetailPage fragment = new ProductDetailPage();
+    Bundle bundle = new Bundle();
+
+    @Override
+    public void onProductClick(String productCode) {
+
+        bundle.putString("productCode",productCode);
+
+        fragment.setArguments(bundle);
+        changeFragment(fragment);
     }
 
     @Override
     public void onProductClick(Fragment fragment) {
         changeFragment(fragment);
+    }
+
+    public void changeFragment(Fragment fragment){
+        transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.containerMain,fragment).addToBackStack(null);
+
+        transaction.commit();
     }
 
 }

@@ -2,6 +2,7 @@ package com.example.lazycoder.health.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,20 +43,19 @@ public class RecommendedProductAdapter extends RecyclerView.Adapter<RecommendedP
 
     @Override
     public void onBindViewHolder(RecommendedProductAdapter.ViewHolder holder, int position) {
-        RecommendedProduct product = products.get(position);
+        final RecommendedProduct product = products.get(position);
         holder.titleTv.setText(product.getTitle());
         holder.descTv.setText(product.getShortDescription());
         holder.locationTv.setText(product.getLocation());
 
         //Picasso is faster also it handle image outOfBound Memory Exception
-        Picasso.with(context).load(product.getImageUrl()).into(holder.productIV);
-
+        Picasso.with(context).load(product.getImageUrl()).resize(400,400).into(holder.productIV);
 
 
         holder.recommendedFoodRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                productClick.onProductClick();
+                productClick.onProductClick(product.getProductCode());
             }
         });
     }
