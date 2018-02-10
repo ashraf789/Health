@@ -47,14 +47,18 @@ public class Doctor extends Fragment {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_doctor, container, false);
         initializeAll();
-        find_btn = (Button) view.findViewById(R.id.find_button2);
-        find_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                maps_api();
-            }
-        });
         return binding.getRoot();
+    }
+
+    private final View.OnClickListener mButtonClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(final View v) {
+            maps_api();
+        }
+    };
+
+    public View.OnClickListener getButtonClickListener() {
+        return mButtonClickListener;
     }
 
     private void initializeAll() {

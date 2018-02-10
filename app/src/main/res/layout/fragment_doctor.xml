@@ -1,4 +1,9 @@
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="activity"
+            type="com.example.lazycoder.health.fragment.Doctor" />
+    </data>
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -14,7 +19,8 @@
                 android:id="@+id/find_button2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Find places near you" />
+                android:text="Find places near you"
+                app:onClickListener="@{activity.buttonClickListener}"/>
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="50dp"
