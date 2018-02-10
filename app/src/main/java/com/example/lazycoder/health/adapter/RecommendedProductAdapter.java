@@ -43,7 +43,7 @@ public class RecommendedProductAdapter extends RecyclerView.Adapter<RecommendedP
     public void onBindViewHolder(RecommendedProductAdapter.ViewHolder holder, int position) {
         RecommendedProduct product = products.get(position);
         holder.titleTv.setText(product.getTitle());
-        holder.descTv.setText(product.getDescription());
+        holder.descTv.setText(product.getShortDescription());
         holder.locationTv.setText(product.getLocation());
 
         //Picasso is faster also it handle image outOfBound Memory Exception

@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.lazycoder.health.Database.ProductDatabase;
 import com.example.lazycoder.health.R;
 import com.example.lazycoder.health.databinding.FragmentMedicineBinding;
 import com.example.lazycoder.health.databinding.FragmentProductDetailPageBinding;
@@ -24,6 +25,7 @@ public class ProductDetailPage extends Fragment {
     private FragmentProductDetailPageBinding binding;
     private Context context;
     private ClickListener clickListener;
+    private ProductDatabase productDatabase;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,7 +38,9 @@ public class ProductDetailPage extends Fragment {
 
     private void initializeAll() {
         clickListener = (ClickListener) context;
+        productDatabase = new ProductDatabase(context);
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

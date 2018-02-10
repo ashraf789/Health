@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.lazycoder.health.Database.ProductDatabase;
 import com.example.lazycoder.health.ModelClass.Item;
 import com.example.lazycoder.health.R;
 import com.example.lazycoder.health.adapter.ItemAdapter;
@@ -29,6 +30,8 @@ public class Accessorise extends Fragment {
     private FragmentAccessoriseBinding binding;
     private List<Item> accessorises;
     private Context context;
+    private ProductDatabase productDatabase;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,18 +45,8 @@ public class Accessorise extends Fragment {
 
     private void initializeAll() {
         accessorises = new ArrayList<>();
-        Item accessorise;
-        //sample product
-        for (int  i = 0; i< 6; i++){
-            accessorise = new Item(
-                    "Accessorise No "+(1+i),
-                    "Surgery",
-                    "Apollo Hospital,Dhanmondi 32",
-                    R.drawable.accessoris2
-            );
-
-            accessorises.add(accessorise);
-        }
+        productDatabase = new ProductDatabase(context);
+        accessorises = productDatabase.getAllProduct("fitness");
     }
 
     @Override
