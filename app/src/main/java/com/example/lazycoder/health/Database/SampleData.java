@@ -28,7 +28,6 @@ public class SampleData {
         }
     }
 
-
     //Note:
     //String.valueOf(Integer.valueOf(R.drawable.doctor2))
     //first we convert
@@ -278,8 +277,7 @@ public class SampleData {
                 "Dhaka-1214",
                 "01772465164"
         ));
-
-
+        
     }
 
     //----------------------Sample Medicine Data---------------------
