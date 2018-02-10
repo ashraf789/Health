@@ -8,10 +8,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.lazycoder.health.Database.ProductDatabase;
 import com.example.lazycoder.health.ModelClass.RecommendedProduct;
 import com.example.lazycoder.health.R;
 import com.example.lazycoder.health.adapter.RecommendedProductAdapter;
@@ -32,6 +34,7 @@ public class Home extends Fragment{
     private List<RecommendedProduct> medicine;
     private List<RecommendedProduct> food;
     private List<RecommendedProduct> gym;
+    ProductDatabase productDatabase;
     private Context context;
 
     @Override
@@ -50,65 +53,18 @@ public class Home extends Fragment{
         food = new ArrayList<>();
         gym = new ArrayList<>();
 
+        productDatabase = new ProductDatabase(context);
+
         RecommendedProduct product;
 
         //sample product
-        for (int  i = 0; i< 5; i++){
-            product = new RecommendedProduct(
-                    "Doctor No "+(1+i),
-                    "Surgery",
-                    "Apollo Hospital,Dhanmondi 32",
-                    R.drawable.doctor2
-            );
 
-            doctor.add(product);
-        }
+        doctor = productDatabase.getAllProductRecommendedFormat("doctor");
+        accessorise = productDatabase.getAllProductRecommendedFormat("fitness");
+        medicine = productDatabase.getAllProductRecommendedFormat("medicine");
+        gym = productDatabase.getAllProductRecommendedFormat("gym");
+        food = productDatabase.getAllProductRecommendedFormat("food");
 
-        for (int  i = 0; i< 5; i++){
-            product = new RecommendedProduct(
-                    "Accessorise No "+(1+i),
-                    "Asteva MrI",
-                    "Matro shoping center, Shukrabad",
-                    R.drawable.accessoris2
-            );
-
-            accessorise.add(product);
-        }
-
-        for (int  i = 0; i< 5; i++){
-            product = new RecommendedProduct(
-                    "Medicine Shop No "+(1+i),
-                    "Hog Medicine",
-                    "Dhanmondi 2, Road 02",
-                    R.drawable.medicineshop
-            );
-
-            medicine.add(product);
-        }
-
-        //start adding foods
-        for (int  i = 0; i< 5; i++){
-            product = new RecommendedProduct(
-                    "Organic Honey "+(i+1),
-                    "no added preservatives",
-                    "Narayan gonj",
-                    R.drawable.honey
-            );
-            food.add(product);
-        }
-
-        //end
-
-        for (int  i = 0; i< 5; i++){
-            product = new RecommendedProduct(
-                    "Gym No "+(1+i),
-                    "Hi Five Gym",
-                    "Dhanmondi 1,Road 03",
-                    R.drawable.gymcenter
-            );
-
-            gym.add(product);
-        }
 
     }
 

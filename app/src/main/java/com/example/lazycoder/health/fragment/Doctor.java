@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.SearchView;
 
+import com.example.lazycoder.health.Database.ProductDatabase;
 import com.example.lazycoder.health.ModelClass.Item;
 import com.example.lazycoder.health.R;
 import com.example.lazycoder.health.adapter.ItemAdapter;
@@ -28,6 +29,8 @@ public class Doctor extends Fragment {
     private FragmentDoctorBinding binding;
     private List<Item> doctors;
     private Context context;
+    ProductDatabase productDatabase;
+
 
 
     @Override
@@ -42,20 +45,9 @@ public class Doctor extends Fragment {
 
     private void initializeAll() {
         doctors = new ArrayList<>();
-        Item doctor;
-        //sample product
-        for (int  i = 0; i< 6; i++){
-            doctor = new Item(
-                    "Doctor No "+(1+i),
-                    "Surgery",
-                    "Apollo Hospital,Dhanmondi 32",
-                    R.drawable.doctor2
-            );
-
-            doctors.add(doctor);
-        }
+        productDatabase = new ProductDatabase(context);
+        doctors = productDatabase.getAllProduct("doctor");
     }
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.example.lazycoder.health.Database.SampleData;
 import com.example.lazycoder.health.R;
 import com.example.lazycoder.health.fragment.Accessorise;
 import com.example.lazycoder.health.fragment.Doctor;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Fragment mFragment;
     private FragmentTransaction transaction;
     private SearchView simpleSearchView;
+    private SampleData sampleData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     * initialize  all object or variable
     * */
     private void initializeAll() {
+
+        //insert some sample data
+        sampleData = new SampleData(this);
+        sampleData.storeSomeSampleData();
+        
         mFragment = new Home();
         transaction = getSupportFragmentManager().beginTransaction();
 

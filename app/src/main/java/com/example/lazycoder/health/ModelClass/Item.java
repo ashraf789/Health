@@ -9,6 +9,7 @@ public class Item {
     private String description;
     private String location;
     private int imageUrl;
+    private String productCode;
 
     public Item(String title, String description, String location, int imageUrl) {
         this.title = title;
@@ -17,10 +18,12 @@ public class Item {
         this.imageUrl = imageUrl;
     }
 
-    public Item(String title, String description, String location) {
+    public Item(String title, String description, String location, int imageUrl, String productCode) {
         this.title = title;
         this.description = description;
         this.location = location;
+        this.imageUrl = imageUrl;
+        this.productCode = productCode;
     }
 
     public String getTitle() {
@@ -53,5 +56,13 @@ public class Item {
 
     public void setImageUrl(int imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getProductCode() {
+        return productCode;
+    }
+
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
     }
 }
