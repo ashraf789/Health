@@ -25,7 +25,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     private List<Item> products;
     private Context context;
     private ClickListener productClick;
-    private Item product;
 
 
     public ItemAdapter(List<Item> products, Context context) {
@@ -43,7 +42,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ItemAdapter.ViewHolder holder, int position) {
-        product = products.get(position);
+        final Item product = products.get(position);
         holder.titleTv.setText(product.getTitle());
         holder.descTv.setText(product.getDescription());
         holder.locationTv.setText(product.getLocation());
