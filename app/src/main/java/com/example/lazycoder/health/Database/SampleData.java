@@ -255,7 +255,7 @@ public class SampleData {
                 "304",
                 "Dumbbells",
                 "Yes4All Adjustable Dumbbells",
-                        "Yes4All Adjustable Dumbbells 40, 50, 52.5 , 60, 105 to 200 lbs",
+                "Yes4All Adjustable Dumbbells 40, 50, 52.5 , 60, 105 to 200 lbs",
                 String.valueOf(Integer.valueOf(R.drawable.dumbbells)),
                 "Bonani",
                 "fitness",
@@ -277,7 +277,7 @@ public class SampleData {
                 "Dhaka-1214",
                 "01772465164"
         ));
-        
+
     }
 
     //----------------------Sample Medicine Data---------------------
@@ -300,9 +300,9 @@ public class SampleData {
                 "401",
                 "Sonar Bangla Pharmacy",
 
-                        "Bangabandhu Sheikh Mojib Medical University Gate No-03",
+                "Bangabandhu Sheikh Mojib Medical University Gate No-03",
 
-                        "Bangabandhu Sheikh Mojib Medical University Gate No-03 ",
+                "Bangabandhu Sheikh Mojib Medical University Gate No-03 ",
                 String.valueOf(Integer.valueOf(R.drawable.medicine2)),
                 "Shahbag",
                 "medicine",
@@ -327,11 +327,11 @@ public class SampleData {
         productDB.insertProduct(new ProductModel(
                 "403",
 
-                        "Rahman Pharmacy ",
+                "Rahman Pharmacy ",
 
-                        "3/2/A, Shahbag Biponi Bitan",
+                "3/2/A, Shahbag Biponi Bitan",
 
-                        "3/2/A, Shahbag Biponi Bitan",
+                "3/2/A, Shahbag Biponi Bitan",
                 String.valueOf(Integer.valueOf(R.drawable.medicine4)),
                 "Bonani",
                 "medicine",

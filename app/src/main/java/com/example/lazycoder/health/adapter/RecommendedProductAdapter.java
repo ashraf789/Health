@@ -26,6 +26,7 @@ public class RecommendedProductAdapter extends RecyclerView.Adapter<RecommendedP
     private Context context;
     private ClickListener productClick;
 
+
     public RecommendedProductAdapter(List<RecommendedProduct> products, Context context) {
         this.products = products;
         this.context = context;
