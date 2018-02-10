@@ -20,6 +20,9 @@ import com.example.lazycoder.health.ModelClass.Item;
 import com.example.lazycoder.health.R;
 import com.example.lazycoder.health.adapter.ItemAdapter;
 import com.example.lazycoder.health.databinding.FragmentDoctorBinding;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.location.places.ui.PlacePicker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +34,7 @@ public class Doctor extends Fragment {
     private Context context;
     ProductDatabase productDatabase;
 
-
+    private int PLACE_PICKER_REQUEST = 1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +52,18 @@ public class Doctor extends Fragment {
             //maps_api();
         }
     };
+
+    private void maps_api(){
+        PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+
+        try {
+            startActivityForResult(builder.build(getActivity()), PLACE_PICKER_REQUEST);
+        } catch (GooglePlayServicesRepairableException e) {
+            e.printStackTrace();
+        } catch (GooglePlayServicesNotAvailableException e) {
+            e.printStackTrace();
+        }
+    }
 
     public View.OnClickListener getButtonClickListener() {
         return mButtonClickListener;

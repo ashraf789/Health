@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import com.example.lazycoder.health.Database.ProductDatabase;
 import com.example.lazycoder.health.ModelClass.ProductModel;
 import com.example.lazycoder.health.R;
-import com.example.lazycoder.health.databinding.FragmentMedicineBinding;
 import com.example.lazycoder.health.databinding.FragmentProductDetailPageBinding;
 import com.example.lazycoder.health.interfaces.ClickListener;
 import com.squareup.picasso.Picasso;
