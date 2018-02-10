@@ -46,12 +46,6 @@ public class Doctor extends Fragment {
 
     }
 
-    private final View.OnClickListener mButtonClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(final View v) {
-            maps_api();
-        }
-    };
 
     private void maps_api(){
         PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
@@ -65,9 +59,6 @@ public class Doctor extends Fragment {
         }
     }
 
-    public View.OnClickListener getButtonClickListener() {
-        return mButtonClickListener;
-    }
 
     private void initializeAll() {
         doctors = new ArrayList<>();
